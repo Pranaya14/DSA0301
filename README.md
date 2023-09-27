@@ -12,7 +12,8 @@ for sentence in sentences:
   stemmed_sentence = " ".join(stemmed_words)
   print(f"original: {sentence}")
   print(f"stemmed: {stemmed_sentence}\n")
-  OUTPUT: 
+  
+**OUTPUT:**
 original: I am running in the park
 stemmed: i am run in the park
 
@@ -96,7 +97,31 @@ for i in tokenized:
 [('shirt', 'NN'), ('collection', 'NN'), ('fantastic', 'NN'), ('.', '.')]
 [('everything', 'NN'), ('okay', 'PRP'), ('.are', 'JJ'), ('fine', 'JJ'), ('.', '.')]
 
+****Parser Tree****
 
+import nltk
+nltk.download('punkt')
+nltk.download('averaged_perceptron_tagger')
+from nltk import pos_tag, word_tokenize, RegexpParser
+sample_text = "The quick brown fox jumps over the lazy dog"
+tagged = pos_tag(word_tokenize(sample_text))
+chunker = RegexpParser("""
+					NP: {<DT>?<JJ>*<NN>} 
+					P: {<IN>}			 
+					V: {<V.*>}			
+					PP: {<p> <NP>}		 
+					VP: {<V> <NP|PP>*}	 
+          """)
+output = chunker.parse(tagged)
+print("After Extracting\n", output)
+**Output:**
+After Extracting
+ (S
+  (NP The/DT quick/JJ brown/NN)
+  (NP fox/NN)
+  (VP (V jumps/VBZ))
+  (P over/IN)
+  (NP the/DT lazy/JJ dog/NN))
 
 
 
