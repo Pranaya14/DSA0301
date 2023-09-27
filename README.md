@@ -44,8 +44,6 @@ for i in tokenized:
 
 ****SENTENCE LEVEL CONSTRUCTION****
 import random
-
-# Define sentence patterns
 sentence_patterns = [
     "The {noun} {verb} {adjective}.",
     "{Noun} {verb} {adjective} {noun}.",
@@ -53,15 +51,11 @@ sentence_patterns = [
     "She {verb} {noun}.",
     "He {verb} {adjective} {noun} {adverb}.",
 ]
-
-# Define vocabulary
 nouns = ["cat", "dog", "ball", "house", "book"]
 verbs = ["runs", "jumps", "sleeps", "reads", "eats"]
 adjectives = ["quick", "lazy", "smart", "tall", "small"]
 adverbs = ["slowly", "quickly", "loudly", "silently"]
 Noun = "John"
-
-# Function to construct a random sentence
 def construct_sentence():
     pattern = random.choice(sentence_patterns)
     sentence = pattern.format(
@@ -72,8 +66,6 @@ def construct_sentence():
         Noun=Noun,
     )
     return sentence
-
-# Generate and print random sentences
 for _ in range(5):
     sentence = construct_sentence()
     print(sentence)
