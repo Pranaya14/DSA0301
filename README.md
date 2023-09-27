@@ -84,4 +84,27 @@ She jumps house.
 I jumps tall house.
 The house reads quick.
 
+****STOP WORDS****
+import nltk
+from nltk.corpus import stopwords
+from nltk.tokenize import word_tokenize, sent_tokenize
+stop_words = set(stopwords.words('english'))
+
+txt = "your shirt collection in fantastic. "\
+      " is everything okay ." \
+      "are you fine ."
+
+tokenized = sent_tokenize(txt)
+for i in tokenized:
+	wordsList = nltk.word_tokenize(i)
+	wordsList = [w for w in wordsList if not w in stop_words]
+	tagged = nltk.pos_tag(wordsList)
+	print(tagged)
+**OUTPUT:**
+[('shirt', 'NN'), ('collection', 'NN'), ('fantastic', 'NN'), ('.', '.')]
+[('everything', 'NN'), ('okay', 'PRP'), ('.are', 'JJ'), ('fine', 'JJ'), ('.', '.')]
+
+
+
+
 
