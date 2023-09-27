@@ -1,0 +1,26 @@
+import random
+sentence_patterns = [
+    "The {noun} {verb} {adjective}.",
+    "{Noun} {verb} {adjective} {noun}.",
+    "I {verb} {adjective} {noun}.",
+    "She {verb} {noun}.",
+    "He {verb} {adjective} {noun} {adverb}.",
+]
+nouns = ["cat", "dog", "ball", "house", "book"]
+verbs = ["runs", "jumps", "sleeps", "reads", "eats"]
+adjectives = ["quick", "lazy", "smart", "tall", "small"]
+adverbs = ["slowly", "quickly", "loudly", "silently"]
+Noun = "John"
+def construct_sentence():
+    pattern = random.choice(sentence_patterns)
+    sentence = pattern.format(
+        noun=random.choice(nouns),
+        verb=random.choice(verbs),
+        adjective=random.choice(adjectives),
+        adverb=random.choice(adverbs),
+        Noun=Noun,
+    )
+    return sentence
+for _ in range(5):
+    sentence = construct_sentence()
+    print(sentence)
