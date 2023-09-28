@@ -192,6 +192,80 @@ for person1 in ["Alice", "Bob", "Charlie"]:
 Alice likes Bob
 Bob likes Charlie
 
+****SYNTAX DRIVEN SEMATTIC ANALYSER****
+import spacy
+nlp = spacy.load("en_core_web_sm")
+sentence = "The quick brown fox jumps over the lazy dog."
+doc = nlp(sentence)
+for token in doc:
+    print(f"Token: {token.text}")
+    print(f"Lemma: {token.lemma_}")
+    print(f"POS (Part-of-Speech): {token.pos_}")
+    print(f"Dependency Label: {token.dep_}")
+    print(f"Semantic Meaning: {token.ent_type_}\n")
+**OUTPUT**
+Token: The
+Lemma: the
+POS (Part-of-Speech): DET
+Dependency Label: det
+Semantic Meaning: 
+
+Token: quick
+Lemma: quick
+POS (Part-of-Speech): ADJ
+Dependency Label: amod
+Semantic Meaning: 
+
+Token: brown
+Lemma: brown
+POS (Part-of-Speech): ADJ
+Dependency Label: amod
+Semantic Meaning: 
+
+Token: fox
+Lemma: fox
+POS (Part-of-Speech): NOUN
+Dependency Label: nsubj
+Semantic Meaning: 
+
+Token: jumps
+Lemma: jump
+POS (Part-of-Speech): VERB
+Dependency Label: ROOT
+Semantic Meaning: 
+
+Token: over
+Lemma: over
+POS (Part-of-Speech): ADP
+Dependency Label: prep
+Semantic Meaning: 
+
+Token: the
+Lemma: the
+POS (Part-of-Speech): DET
+Dependency Label: det
+Semantic Meaning: 
+
+Token: lazy
+Lemma: lazy
+POS (Part-of-Speech): ADJ
+Dependency Label: amod
+Semantic Meaning: 
+
+Token: dog
+Lemma: dog
+POS (Part-of-Speech): NOUN
+Dependency Label: pobj
+Semantic Meaning: 
+
+Token: .
+Lemma: .
+POS (Part-of-Speech): PUNCT
+Dependency Label: punct
+Semantic Meaning: 
+
+
+
 
 
 
