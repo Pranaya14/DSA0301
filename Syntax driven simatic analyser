@@ -1,0 +1,10 @@
+import spacy
+nlp = spacy.load("en_core_web_sm")
+sentence = "The quick brown fox jumps over the lazy dog."
+doc = nlp(sentence)
+for token in doc:
+    print(f"Token: {token.text}")
+    print(f"Lemma: {token.lemma_}")
+    print(f"POS (Part-of-Speech): {token.pos_}")
+    print(f"Dependency Label: {token.dep_}")
+    print(f"Semantic Meaning: {token.ent_type_}\n")
