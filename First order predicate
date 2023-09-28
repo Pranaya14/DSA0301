@@ -1,0 +1,18 @@
+def Person(x):
+    people = ["Alice", "Bob", "Charlie"]
+    return x in people
+def Knows(x, y):
+    knowledge_base = [("Alice", "Bob"), ("Bob", "Charlie")]
+    return (x, y) in knowledge_base
+def Likes(x, y):
+    return f"{x} likes {y}"
+def rule(x, y):
+    if Person(x) and Person(y) and Knows(x, y):
+        return Likes(x, y)
+    return None
+for person1 in ["Alice", "Bob", "Charlie"]:
+    for person2 in ["Alice", "Bob", "Charlie"]:
+        if person1 != person2:
+            result = rule(person1, person2)
+            if result:
+                print(result)
