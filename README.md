@@ -159,18 +159,39 @@ for sentence in sentences:
         sentiment = "Neutral"
     print(f"Sentence: {sentence}")
     print(f"Sentiment: {sentiment} (Compound Score: {compound_score:.2f})\n")
-****OUTPUT****
+**OUTPUT**
 Sentence: I love this product! It's amazing.
 Sentiment: Positive (Compound Score: 0.85)
-
 Sentence: The weather is terrible today.
 Sentiment: Negative (Compound Score: -0.48)
-
 Sentence: The movie was okay, but not great.
 Sentiment: Negative (Compound Score: -0.61)
-
 Sentence: I feel neutral about this.
 Sentiment: Neutral (Compound Score: 0.00)
+
+****FIRST ORDER PREDICATE****
+def Person(x):
+    people = ["Alice", "Bob", "Charlie"]
+    return x in people
+def Knows(x, y):
+    knowledge_base = [("Alice", "Bob"), ("Bob", "Charlie")]
+    return (x, y) in knowledge_base
+def Likes(x, y):
+    return f"{x} likes {y}"
+def rule(x, y):
+    if Person(x) and Person(y) and Knows(x, y):
+        return Likes(x, y)
+    return None
+for person1 in ["Alice", "Bob", "Charlie"]:
+    for person2 in ["Alice", "Bob", "Charlie"]:
+        if person1 != person2:
+            result = rule(person1, person2)
+            if result:
+                print(result)
+**OUTPUT:**
+Alice likes Bob
+Bob likes Charlie
+
 
 
 
