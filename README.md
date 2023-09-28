@@ -137,7 +137,40 @@ print(pos_tags)
 **OUTPUT**
 [('The', 'DET'), ('quick', 'ADJ'), ('brown', 'ADJ'), ('fox', 'NOUN'), ('jumps', 'VERB'), ('over', 'ADP'), ('the', 'DET'), ('lazy', 'ADJ'), ('dog', 'NOUN'), ('.', 'PUNCT')]
 
+****SEMATIC ANALYSIS****
+import nltk
+from nltk.sentiment.vader import SentimentIntensityAnalyzer
+nltk.download('vader_lexicon')
+sia = SentimentIntensityAnalyzer()
+sentences = [
+    "I love this product! It's amazing.",
+    "The weather is terrible today.",
+    "The movie was okay, but not great.",
+    "I feel neutral about this.",
+]
+for sentence in sentences:
+    sentiment_scores = sia.polarity_scores(sentence)
+    compound_score = sentiment_scores['compound']
+    if compound_score >= 0.05:
+        sentiment = "Positive"
+    elif compound_score <= -0.05:
+        sentiment = "Negative"
+    else:
+        sentiment = "Neutral"
+    print(f"Sentence: {sentence}")
+    print(f"Sentiment: {sentiment} (Compound Score: {compound_score:.2f})\n")
+****OUTPUT****
+Sentence: I love this product! It's amazing.
+Sentiment: Positive (Compound Score: 0.85)
 
+Sentence: The weather is terrible today.
+Sentiment: Negative (Compound Score: -0.48)
+
+Sentence: The movie was okay, but not great.
+Sentiment: Negative (Compound Score: -0.61)
+
+Sentence: I feel neutral about this.
+Sentiment: Neutral (Compound Score: 0.00)
 
 
 
