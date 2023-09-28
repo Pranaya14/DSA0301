@@ -123,5 +123,21 @@ After Extracting
   (P over/IN)
   (NP the/DT lazy/JJ dog/NN))
 
+****PARTS OS SPEECH****
+import nltk
+nltk.download("punkt")
+nltk.download("averaged_perceptron_tagger")
+text = "Natural language processing is a subfield of artificial intelligence that focuses on the interaction between computers and humans through natural language."
+words = nltk.word_tokenize(text)
+pos_tags = nltk.pos_tag(words)
+print("Original Text:")
+print(text)
+print("\nPOS Tags:")
+print(pos_tags)
+**OUTPUT**
+[('The', 'DET'), ('quick', 'ADJ'), ('brown', 'ADJ'), ('fox', 'NOUN'), ('jumps', 'VERB'), ('over', 'ADP'), ('the', 'DET'), ('lazy', 'ADJ'), ('dog', 'NOUN'), ('.', 'PUNCT')]
+
+
+
 
 
